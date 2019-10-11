@@ -17,24 +17,24 @@ module.exports = {
       modules: __dirname + "/node_modules"
     }
   },
-  plugin: [new ExtractTextPlugin("app.css")],
+  plugins: [new ExtractTextPlugin("app.css")],
   module: {
     loaders: [
       {
-        teste: /.js[x]?$/,
-        loader: "babel=loader",
-        exclude: "/node_modules/",
+        test: /.js[x]?$/,
+        loader: "babel-loader",
+        exclude: /node_modules/,
         query: {
           presets: ["es2015", "react"],
           plugins: ["transform-object-rest-spread"]
         }
       },
       {
-        teste: /\.css$/,
+        test: /\.css$/,
         loader: ExtractTextPlugin.extract("style-loader", "css-loader")
       },
       {
-        teste: /\.woff|.woff2|.ttf|.eot|.svg*.*$/,
+        test: /\.woff|.woff2|.ttf|.eot|.svg*.*$/,
         loader: "file"
       }
     ]
